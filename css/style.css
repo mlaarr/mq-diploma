@@ -82,18 +82,20 @@ h1 {
 }
 
 .download_link {
-  display: block;
-  text-align: center;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   color: #ffffff;
   font-size: 8px;
   text-decoration: none;
   text-transform: uppercase;
   max-width: 280px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  padding-top: 6px;
+  padding-bottom: 6px;
   background-color: #5e42b0;
   border-radius: 50px;
-  position: relative;
   z-index: 2;
 }
 
@@ -101,21 +103,11 @@ h1 {
   margin-top: 13px;
 }
 
-.button_fill {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  width: 112px;
-  margin: auto;
-  z-index: 2;
-}
-
 .apple, .google {
   box-sizing: border-box;
   align-self: center;
   display: block;
+  margin-left: 29%;
   width: 30px;
   padding-right: 7px;
 }
@@ -159,22 +151,36 @@ h1 {
 }
 
 h3 {
+  position: relative;
   font-size: 23px;
   color: #c1c1c1;
   text-transform: uppercase;
   margin: 0;
 }
 
-ol, .benefits_list {
+.athlets_list, .players_list {
+    width: 100%;
     counter-reset: myCounter;
+    list-style: none;
     margin: 0;
     padding: 0;
   }
 
-li {
+.benefits_list {
+    width: 100%;
+    counter-reset: myCounter;
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+
+p {
+    margin: 0;
+    padding-top: 20px;
+  }
+
+.athlets_point, .players_point {
+    list-style: none;
     align-items: flex-start;
     padding-left: 6%;
     padding-right: 6%;
@@ -182,35 +188,30 @@ li {
     padding-bottom: 50px;
   }
 
-li:first-child {
+.athlets_list li:first-child, .players_list  li:first-child {
     padding-top: 0;
   }
 
-.athlets_list li:before, .players_list li:before {
+.athlets_list h3:before, .players_list h3:before {
     counter-increment: myCounter;
     content: counter(myCounter, decimal-leading-zero);
     color: #000000;
-    font-size: 14;
+    font-size: 14px;
     line-height: normal;
     font-weight: bold;
+    vertical-align: super;
     margin-right: 10px;
     padding: 0;
     display: inline-block;
-    text-align: center;
     border-bottom: solid 4px #5e42b0;
   }
 
-  p {
-    margin: 0;
-    padding-top: 20px;
-  }
-
-  .athlets_list li:last-child {
+.athlets_list li:last-child {
     background-color: #5e42b0;
     color: #ffffff;
   }
 
-  .athlets_list li:last-child::before {
+.athlets_point:last-child h3:before {
     border-bottom: solid 4px #ffffff;
 }
 
@@ -230,7 +231,7 @@ li:first-child {
   width: 100%;
 }
 
-.players_list li:last-child::before {
+.players_point:last-child h3:before {
   color: #5e42b0;
   border-bottom: solid 4px #ffffff;
 }
@@ -268,6 +269,7 @@ li:first-child {
   margin-top: -58px;
   order: 1;
 }
+
 
 .counter_style::before {
   counter-increment: myCounter;
